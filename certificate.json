@@ -1,0 +1,6 @@
+{
+    "certificateSettings": {
+      "fileName": "com.example.dotnet.webapi.pfx",
+      "password": "j4m13"
+    }
+  }

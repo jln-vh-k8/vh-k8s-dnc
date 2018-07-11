@@ -46,22 +46,6 @@ namespace com.example.dotnet.webapi.Controllers
                 return Ok(claim);
         }
 
-        // POST api/v1.0/Claims
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/v1.0/Claims/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/v1.0/Claims/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+       
     }
 }

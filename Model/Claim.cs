@@ -1,10 +1,12 @@
 
 
+using Newtonsoft.Json;
+
 namespace com.example.dotnet.webapi.Model {
 
 public class Claim
 {
-
+    [JsonProperty("CLAIM_ID")]      
     public string CLAIM_ID {get;set;}     
     public string PPR_CONSULTANT_ID {get;set;}
     public string CLAIM_TYPE_ID {get;set;}

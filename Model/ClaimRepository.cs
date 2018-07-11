@@ -17,7 +17,7 @@ namespace com.example.dotnet.webapi.Model
               //  return null;
             //}
 
-            return JsonConvert.DeserializeObject<Claim>(data.ToString());
+            return data;
         }
     }
 }

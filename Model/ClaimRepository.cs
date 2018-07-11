@@ -3,7 +3,7 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace com.example.dotnet.webapi.model
+namespace com.example.dotnet.webapi.Model
 {
 
     public class ClaimRepository : IClaimsRepository

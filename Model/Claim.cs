@@ -1,6 +1,6 @@
 
 
-namespace com.example.dotnet.webapi.model {
+namespace com.example.dotnet.webapi.Model {
 
 public class Claim
 {

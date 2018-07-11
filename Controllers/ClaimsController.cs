@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 
+
 namespace com.example.dotnet.webapi.Controllers
 {
     [ApiVersion( "1.0" )]
@@ -31,7 +32,7 @@ namespace com.example.dotnet.webapi.Controllers
         }
 
 [HttpGet("{claimid}")]
-[ProducesResponseType(typeof(model.Claim), (int)StatusCodes.Status200OK)]
+[ProducesResponseType(typeof(Model.Claim), (int)StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(string claimid)
         {
             if (claimid == null)
@@ -39,7 +40,7 @@ namespace com.example.dotnet.webapi.Controllers
                 throw new ArgumentNullException(nameof(claimid));
             }
 
-            model.IClaimsRepository _repository = new model.ClaimRepository();
+            Model.IClaimsRepository _repository = new Model.ClaimRepository();
             var claim = await _repository.GetClaimAsync(claimid);
 
                 return Ok(claim);

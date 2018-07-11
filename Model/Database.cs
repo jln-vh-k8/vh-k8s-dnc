@@ -17,7 +17,7 @@ namespace com.example.dotnet.webapi.Model
         public async Task<List<Claim>> GetAllRecordsAsync(string claimid){
 List<Claim> values = File.ReadAllLines("C:\\Users\\Josh\\Sample.csv")
                                            .Skip(1)
-                                           .Select(v => DailyValues.FromCsv(v))
+                                           .Select(v => ClaimsFromCSV.FromCSV(v))
                                            .ToList();
             return await Task.Run(()=>  values);
         }

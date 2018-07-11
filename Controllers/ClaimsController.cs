@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
-namespace com.example.dotnetcore.webapi.Controllers
+namespace com.example.dotnet.webapi.Controllers
 {
     [ApiVersion( "1.0" )]
     [Route("api/v{version:apiVersion}/[controller]")]
@@ -15,7 +16,6 @@ namespace com.example.dotnetcore.webapi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-
             //return new JsonResult(new string[] { "value1", "value2" });
             return Ok(new string[] { "value1", "value2" });
         }
@@ -28,6 +28,21 @@ namespace com.example.dotnetcore.webapi.Controllers
             result.StatusCode =200;
             result.ContentType = "text/plain";
             return result;
+        }
+
+[HttpGet("{claimid}")]
+[ProducesResponseType(typeof(model.Claim), (int)StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get(string claimid)
+        {
+            if (claimid == null)
+            {
+                throw new ArgumentNullException(nameof(claimid));
+            }
+
+            model.IClaimsRepository _repository = new model.ClaimRepository();
+            var claim = await _repository.GetClaimAsync(claimid);
+
+                return Ok(claim);
         }
 
         // POST api/v1.0/Claims

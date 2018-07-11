@@ -26,7 +26,7 @@ namespace com.example.dotnetcore.webapi.Controllers
         {
             var result = new JsonResult(string.Format("value:{0}",id));
             result.StatusCode =200;
-            result.ContentType = "application/json";
+            result.ContentType = "text/plain";
             return result;
         }
 

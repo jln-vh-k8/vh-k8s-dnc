@@ -14,12 +14,26 @@ namespace com.example.dotnet.webapi.Model
             return await Task.Run(()=>  new Claim(){CLAIM_ID=claimid});
         }
 
-        public async Task<List<Claim>> GetAllRecordsAsync(string claimid){
-List<Claim> values = File.ReadAllLines("C:\\Users\\Josh\\Sample.csv")
+        public async Task<List<Claim>> GetAllRecordsAsync(){
+
+            string datapath = Path.Combine( Directory.GetCurrentDirectory(), "UAT-Claims-Data.csv");
+
+List<Claim> values = File.ReadAllLines(datapath)
                                            .Skip(1)
                                            .Select(v => ClaimsFromCSV.FromCSV(v))
                                            .ToList();
             return await Task.Run(()=>  values);
+        }
+
+        public List<Claim> fillCollection()
+        {
+            string datapath = Path.Combine( Directory.GetCurrentDirectory(), "UAT-Claims-Data.csv");
+            
+List<Claim> values = File.ReadAllLines(datapath)
+                                           .Skip(1)
+                                           .Select(v => ClaimsFromCSV.FromCSV(v))
+                                           .ToList();
+                                           return values;
         }
     }
 

@@ -18,6 +18,9 @@ namespace com.example.dotnet.webapi
         {
             //CreateWebHostBuilder(args).Build().Run();
 
+            Model.Database db = new  Model.Database();
+            var res = db.fillCollection();
+
             string developmentEnvironment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             string developmentOS = Environment.GetEnvironmentVariable("ENVIRONMENT_OS");
             var config = new ConfigurationBuilder()
